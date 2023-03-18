@@ -3,7 +3,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { zodErrorParse } from '../../../shared/errors/zodErrorParser';
 import { Example } from '../domain/entities/example.entity';
 import { exampleUseCases } from '../domain/use-cases';
-import { CreateExampleDto } from '../domain/use-cases/create-example/create-example.use-case';
+import { CreateExampleDto } from '../domain/use-cases/create-example/create-example.dto';
 
 @ApiTags('Example')
 @Controller('/example')

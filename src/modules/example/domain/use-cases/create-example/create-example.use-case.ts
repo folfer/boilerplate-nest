@@ -1,24 +1,7 @@
 import { ConflictException } from '@nestjs/common';
-import { ApiProperty } from '@nestjs/swagger';
 import { IRepositories } from '../../../../../shared/types/repositories';
-import { Example, ExampleSchema } from '../../entities/example.entity';
-
-export const CreateExampleInput = ExampleSchema.pick({
-  email: true,
-  role: true,
-  username: true,
-});
-
-export class CreateExampleDto {
-  @ApiProperty({ description: 'Example Email' })
-  email!: string;
-
-  @ApiProperty({ description: 'Example Role' })
-  role!: string;
-
-  @ApiProperty({ description: 'Example Username' })
-  username!: string;
-}
+import { Example } from '../../entities/example.entity';
+import { CreateExampleDto, CreateExampleInput } from './create-example.dto';
 
 export class CreateExampleUseCase {
   repositories: IRepositories;

@@ -1,13 +1,12 @@
 import { ConflictException } from '@nestjs/common';
+import { describe, test, expect } from 'vitest';
 import { repositories } from '../../../../../shared/tests/dependencies';
-import {
-  CreateExampleDto,
-  CreateExampleUseCase,
-} from './create-example.use-case';
+import { CreateExampleDto } from './create-example.dto';
+import { CreateExampleUseCase } from './create-example.use-case';
 
 describe('CreateExample', () => {
   const createExampleUseCase = new CreateExampleUseCase(repositories);
-  it('should createExample properly', async () => {
+  test('should createExample properly', async () => {
     const input: CreateExampleDto = {
       email: 'test@email.com',
       role: 'role',
@@ -19,7 +18,7 @@ describe('CreateExample', () => {
     expect(output.id).toBeDefined();
   });
 
-  it('throw createExample if email exists', async () => {
+  test('throw createExample if email exists', async () => {
     const input: CreateExampleDto = {
       email: 'test@email.com',
       role: 'role',
