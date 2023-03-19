@@ -15,7 +15,7 @@ export class ExampleController {
   }
 
   @Post('/create')
-  async register(@Body() createExampleDto: CreateExampleDto): Promise<Example> {
+  async create(@Body() createExampleDto: CreateExampleDto): Promise<Example> {
     try {
       return await this.useCases.createExample.execute(createExampleDto);
     } catch (err) {
